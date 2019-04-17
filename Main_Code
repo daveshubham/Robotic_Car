@@ -1,0 +1,16 @@
+int switchState; // initializing switchState. It can be either on or off
+void setup() {
+  // put your setup code here, to run once:
+ pinMode(9,OUTPUT); // setting pin number 9 as the output pin
+ Serial.begin(9600);
+}
+void loop() {
+  // put your main code here, to run repeatedly:
+  switchState = analogRead(A0);
+  Serial.println(switchState);
+  if (switchState>450) {
+    digitalWrite(9,LOW);
+  }else{
+    digitalWrite(9,HIGH);
+  }
+}
