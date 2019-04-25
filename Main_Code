@@ -11,10 +11,11 @@ void loop() {
   Serial.println(switchState);
   if (switchState > 450) {
     digitalWrite(9,LOW); 
-    digitalWrite(10,LOW);  //if lightLevel of photoresitor in the serial monitor exceeds 450, output cuts off connection
+    digitalWrite(10,LOW);  // if lightLevel of photoresitor in the serial monitor exceeds 450, output cuts off connection
   }
   else{
     digitalWrite(9,HIGH);
-    digitalWrite(10,HIGH); //else, both servos turn on
+    digitalWrite(10,HIGH); // else, both servos turn on
   }
+  delay(5000); // making the servos run for 5 seconds to make the car cover approximately 20 feets
 }
