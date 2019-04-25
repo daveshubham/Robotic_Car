@@ -1,16 +1,20 @@
 int switchState; // initializing switchState. It can be either on or off
 void setup() {
   // put your setup code here, to run once:
- pinMode(9,OUTPUT); // setting pin number 9 as the output pin
+ pinMode(9,OUTPUT); // setting pin number 9 as the output pin for the first servo
+ pinMode(10,OUTPUT);// setting pin number 10 as the output pin for the second servo
  Serial.begin(9600);
 }
 void loop() {
   // put your main code here, to run repeatedly:
   switchState = analogRead(A0);
   Serial.println(switchState);
-  if (switchState>450) {
-    digitalWrite(9,LOW);
-  }else{
+  if (switchState > 450) {
+    digitalWrite(9,LOW); 
+    digitalWrite(10,LOW);  //if lightLevel of photoresitor in the serial monitor exceeds 450, output cuts off connection
+  }
+  else{
     digitalWrite(9,HIGH);
+    digitalWrite(10,HIGH); //else, both servos turn on
   }
 }
